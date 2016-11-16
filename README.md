@@ -173,3 +173,6 @@ python -c "import cv2; print(cv2.__version__)"
 deactivate
 ```
 
+Thanks to Adrian Rosebrock (http://www.pyimagesearch.com)
+
+
