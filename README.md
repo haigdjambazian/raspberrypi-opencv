@@ -20,3 +20,17 @@ Install developper tools
 sudo apt-get install build-essential git cmake pkg-config
 ```
 
+Install image and video I/O packages
+------------------------------------
+```
+sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install libxvidcore-dev libx264-dev
+```
+
+Install GATK
+------------
+* GATK development library to compile the highgui sub-module of OpenCV allowing the display images to our screen and build simple GUI interfaces.
+```
+sudo apt-get install libgtk2.0-dev
+```
