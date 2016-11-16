@@ -85,7 +85,7 @@ mkvirtualenv cv
 # or 
 mkvirtualenv cv3 -p python3
 ```
-Choose Python2 virtual environment
+Choose Python2 virtual environment (virtualenv: Python2)
 ----------------------------------
 ```
 source ~/.profile; workon cv
@@ -121,14 +121,14 @@ ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
 ```
 Note the .so is in /usr/local/lib/python2.7/dist-packages not /usr/local/lib/python2.7/site-packages
 
-Exit virtual environment (virtualenv: Python2)
+Test python and exit virtual environment (virtualenv: Python2)
 ------------------------
 ```
+python -c "import cv2; print cv2.__version__"
 deactivate
 ```
 
-
-Choose Python3 virtual environment
+Choose Python3 virtual environment (virtualenv: Python3)
 ----------------------------------
 ```
 source ~/.profile; workon cv3
@@ -159,14 +159,17 @@ sudo ldconfig
 ```
 sym-link the OpenCV bindings into the cv3 virtual environment
 ```
-cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
-ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
+cd /usr/local/lib/python3.4/site-packages/
+sudo mv cv2.cpython-34m.so cv2.so
+cd ~/.virtualenvs/cv/lib/python3.4/site-packages/
+ln -s /usr/local/lib/python3.4/site-packages/cv2.so cv2.so
 ```
-Note the .so is in /usr/local/lib/python2.7/dist-packages not /usr/local/lib/python2.7/site-packages
+Note that now the .so is in /usr/local/lib/python3.4/site-packages not /usr/local/lib/python3.4/dist-packages
 
-Exit virtual environment (virtualenv: Python2)
+Test python and exit virtual environment (virtualenv: Python3)
 ------------------------
 ```
+python -c "import cv2; print(cv2.__version__)"
 deactivate
 ```
 
