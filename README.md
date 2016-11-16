@@ -7,13 +7,16 @@ http://www.pyimagesearch.com/2015/10/26/how-to-install-opencv-3-on-raspbian-jess
 
 Update existing packages and Raspberry Pi firmware
 --------------------------------------------------
-```sudo apt-get update
+```
+sudo apt-get update
 sudo apt-get upgrade
 sudo rpi-update
-sudo reboot```
+sudo reboot
+```
 
 Install developper tools
 ------------------------
 ```
-sudo apt-get install build-essential git cmake pkg-config```
+sudo apt-get install build-essential git cmake pkg-config
+```
 
