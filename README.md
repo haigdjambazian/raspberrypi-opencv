@@ -34,3 +34,139 @@ Install GATK
 ```
 sudo apt-get install libgtk2.0-dev
 ```
+
+Dependencies allowing optimized OpenCV operation (eg: matrix operations)
+------------------------------------------------------------------------
+
+```
+sudo apt-get install libatlas-base-dev gfortran
+```
+
+Install header files for Python 2.7 and Python 3 to compile OpenCV Python bindings
+----------------------------------------------------------------------------------
+
+```
+sudo apt-get install python2.7-dev python3-dev
+```
+
+Download OpenCV and opencv_contrib source codes
+-----------------------------------------------
+* OpenCV repository: https://github.com/Itseez/opencv
+```
+cd ~
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.0.0.zip
+unzip opencv.zip
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.0.0.zip
+unzip opencv_contrib.zip
+```
+
+Install PIP, virtualenv and virtualenvwrapper
+---------------------------------------------
+```
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo pip install virtualenv virtualenvwrapper
+sudo rm -rf ~/.cache/pip
+```
+Also add these lines to ~/.profile
+
+```
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+```
+Then source the .profile
+```
+source ~/.profile
+```
+To install opencv in Python2 or Python3
+----------------------------
+```
+mkvirtualenv cv
+# or 
+mkvirtualenv cv3 -p python3
+```
+Choose Python2 virtual environment
+----------------------------------
+```
+source ~/.profile; workon cv
+```
+Install numpy (virtualenv: Python2)
+-------------
+```
+pip install numpy
+```
+Compile and install OpenCV (virtualenv: Python2)
+--------------------------
+```
+cd ~/opencv-3.0.0/
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D INSTALL_C_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.0.0/modules \
+	-D BUILD_EXAMPLES=ON ..
+```
+Make sure Interpreter and numpy variables point to the cv virtual environment in the output.
+```
+sudo make
+sudo make install
+sudo ldconfig
+```
+sym-link the OpenCV bindings into the cv virtual environment
+```
+cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
+ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
+```
+Note the .so is in /usr/local/lib/python2.7/dist-packages not /usr/local/lib/python2.7/site-packages
+
+Exit virtual environment (virtualenv: Python2)
+------------------------
+```
+deactivate
+```
+
+
+Choose Python3 virtual environment
+----------------------------------
+```
+source ~/.profile; workon cv3
+```
+Install numpy (virtualenv: Python3)
+-------------
+```
+pip install numpy
+```
+Compile and install OpenCV (virtualenv: Python3)
+--------------------------
+```
+cd ~/opencv-3.0.0/
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	-D CMAKE_INSTALL_PREFIX=/usr/local \
+	-D INSTALL_C_EXAMPLES=ON \
+	-D INSTALL_PYTHON_EXAMPLES=ON \
+	-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.0.0/modules \
+	-D BUILD_EXAMPLES=ON ..
+```
+Make sure Interpreter and numpy variables point to the cv3 virtual environment in the output.
+```
+sudo make
+sudo make install
+sudo ldconfig
+```
+sym-link the OpenCV bindings into the cv3 virtual environment
+```
+cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
+ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
+```
+Note the .so is in /usr/local/lib/python2.7/dist-packages not /usr/local/lib/python2.7/site-packages
+
+Exit virtual environment (virtualenv: Python2)
+------------------------
+```
+deactivate
+```
+
