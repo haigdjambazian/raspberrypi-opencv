@@ -121,10 +121,21 @@ ln -s /usr/local/lib/python2.7/dist-packages/cv2.so cv2.so
 ```
 Note the .so is in /usr/local/lib/python2.7/dist-packages not /usr/local/lib/python2.7/site-packages
 
-Test python and exit virtual environment (virtualenv: Python2)
+Test opencv (virtualenv: Python2)
 ------------------------
 ```
 python -c "import cv2; print cv2.__version__"
+```
+
+Install picamera (virtualenv: Python2)
+--------------------------------------
+```
+pip install picamera
+```
+
+Exit virtual environment (virtualenv: Python2)
+-----------------------------------------------
+```
 deactivate
 ```
 
@@ -166,13 +177,23 @@ ln -s /usr/local/lib/python3.4/site-packages/cv2.so cv2.so
 ```
 Note that now the .so is in /usr/local/lib/python3.4/site-packages not /usr/local/lib/python3.4/dist-packages
 
-Test python and exit virtual environment (virtualenv: Python3)
+Test opencv (virtualenv: Python3)
 ------------------------
 ```
 python -c "import cv2; print(cv2.__version__)"
+```
+
+Install picamera (virtualenv: Python3)
+--------------------------------------
+```
+pip install picamera
+```
+
+Exit virtual environment (virtualenv: Python3)
+-----------------------------------------------
+```
 deactivate
 ```
 
 Thanks to Adrian Rosebrock (http://www.pyimagesearch.com)
-
 
