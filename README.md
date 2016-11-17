@@ -161,7 +161,7 @@ sym-link the OpenCV bindings into the cv3 virtual environment
 ```
 cd /usr/local/lib/python3.4/site-packages/
 sudo mv cv2.cpython-34m.so cv2.so
-cd ~/.virtualenvs/cv/lib/python3.4/site-packages/
+cd ~/.virtualenvs/cv3/lib/python3.4/site-packages/
 ln -s /usr/local/lib/python3.4/site-packages/cv2.so cv2.so
 ```
 Note that now the .so is in /usr/local/lib/python3.4/site-packages not /usr/local/lib/python3.4/dist-packages
